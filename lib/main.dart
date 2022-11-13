@@ -100,8 +100,10 @@ class _ToDoListState extends State<ToDoList> {
             actions: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
-                  _addItem(_textFieldController.text);
+                  if (_textFieldController.text.trim().isNotEmpty) {
+                    Navigator.of(context).pop();
+                    _addItem(_textFieldController.text.trim());
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(32, 32),
@@ -183,8 +185,10 @@ class _ToDoListState extends State<ToDoList> {
             actions: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
-                  _editItem(index, _textFieldController.text);
+                  if (_textFieldController.text.trim().isNotEmpty) {
+                    Navigator.of(context).pop();
+                    _editItem(index, _textFieldController.text.trim());
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(32, 32),
